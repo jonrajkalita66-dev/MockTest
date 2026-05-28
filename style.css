@@ -357,3 +357,18 @@ body {
     .student-info-top { flex-direction: column; gap: 5px; align-items: flex-end; }
 }
 
+/* Mobile responsive fix for Verification Portal */
+@media screen and (max-width: 768px) {
+  /* 1. Agar aapka form popup modal roop mein hai */
+  .candidate-modal, [class*="portal"], [id*="portal"], .verification-container {
+    max-height: 85vh !important; /* Screen se thoda chota rakhega box ko */
+    overflow-y: auto !important;  /* Agar content bada hai toh andar hi scrollbar de dega */
+    padding-bottom: 20px !important;
+  }
+  
+  /* 2. Pure page par scroll enable karne ke liye jab modal khula ho */
+  body {
+    overflow-y: auto !important;
+  }
+}
+
