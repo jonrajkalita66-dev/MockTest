@@ -385,3 +385,47 @@ body {
     overflow-y: auto !important;
   }
 }
+
+
+/* ========================================================
+   🚨 ULTIMATE FORCE MOBILE SCROLL OVERRIDE (Failsafe Fix)
+   ======================================================== */
+@media screen and (max-width: 768px) {
+    /* 1. Body aur HTML ko lock hone se bachane ke liye */
+    html, body {
+        height: auto !important;
+        min-height: 100% !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+    }
+
+    /* 2. Poore modal background layer ko center se hata kar scrollable banana */
+    body .custom-modal, html .custom-modal {
+        display: block !important;       /* Flexbox se block modal par shift */
+        align-items: flex-start !important;
+        padding: 15px 10px !important;
+        overflow-y: auto !important;     /* Force scrollbar on modal layer */
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* 3. Form container dabba (Jahan input fields aur buttons hain) */
+    body .custom-modal .modal-content, html .custom-modal .modal-content {
+        margin: 15px auto !important;   /* Upar-niche se scrolling gap */
+        max-height: none !important;    /* Height ki saari purani limits khatam */
+        height: auto !important;        /* Jitna bada content utna bada dabba */
+        overflow: visible !important;   /* Andar ke buttons ko bahar dikhane ke liye */
+    }
+
+    /* 4. Modal body aur footer ko auto-expand karna */
+    .custom-modal .modal-body {
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    .custom-modal .modal-footer {
+        position: relative !important;
+        display: block !important;
+        margin-top: 10px !important;
+        padding-bottom: 25px !important; /* Mobile buttons ke liye niche breathing space */
+    }
+}
