@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Professional Mock Test Panel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="ssc-panel">
+    <div class="ssc-top-bar">
+        <span class="exam-title">Mock Test Portal</span>
+        <div class="student-info-top">
+            <span id="displayStudentName">Candidate: Guest</span>
+            <span class="timer-box" id="timerContainer" style="display: none;">
+                Time Left: <span id="examTimer">02:00:00</span>
+            </span>
+        </div>
+    </div>
+
+    <div class="ssc-main-content">
+        <div class="question-section">
+            <div class="subject-tabs" id="subjectTabsContainer" style="display: none;">
+                <div class="tab" id="currentSubjectDisplay">General Intelligence</div>
+            </div>
+            
+            <div class="registration-box" id="regBox">
+                <h2>Candidate Verification Portal</h2>
+                <p>Please enter your correct details & select your exam papers.</p>
+                <form id="regForm" onsubmit="event.preventDefault(); startExam();">
+                    <input type="text" id="studentName" placeholder="Enter Your Full Name" required>
+                    <input type="email" id="studentEmail" placeholder="Enter Registered Gmail ID" required>
+                    
+                    <div class="photo-upload-container">
+                        <label for="studentPhoto">Upload Passport Size Photo:</label>
+                        <input type="file" id="studentPhoto" accept="image/*">
+                    </div>
+
+                    <div class="mock-selector-container">
+                        <label for="mockSelect" style="font-weight: bold; display: block; margin-bottom: 5px; font-size:13px;">Select Available Mock Test:</label>
+                        <select id="mockSelect" required>
+                            <option value="">-- Loading Available Tests --</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-start">Start Examination</button>
+                </form>
+            </div>
+
+            <form id="examForm" style="display: none;">
+                <div id="activeQuestionCard"></div>
+                
+                <div class="ssc-buttons">
+                    <button type="button" class="btn-clear" onclick="clearResponse()">Clear Response</button>
+                    <button type="button" class="btn-next" onclick="saveAndNext()">Save & Next</button>
+                    <button type="submit" class="btn-submit">Submit Exam</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="palette-section" id="paletteSideSection">
+            <div class="profile-box">
+                <div class="avatar-container">
+                    <img id="candidateAvatar" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23555'><path d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/></svg>" alt="Avatar">
+                </div>
+                <div class="profile-details">
+                    <strong id="candidateNameGrid">Candidate Name</strong>
+                    <p id="candidateEmailGrid" style="margin:2px 0; font-size:11px; color:#555;">example@gmail.com</p>
+                    
+                    <div class="lang-selector-box" style="margin-top: 5px;">
+                        <label style="font-size:10px; font-weight:bold; color:#1e3a8a;">Language: </label>
+                        <select id="langSelect" style="font-size:11px; padding:2px; font-weight:bold;">
+                            <option value="English">English</option>
+                            <option value="Hindi">Hindi</option>
+                            <option value="Assamese">Assamese</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="palette-status">
+                <div class="status-item"><span class="box answered">0</span> Answered</div>
+                <div class="status-item"><span class="box unanswered">0</span> Not Answered</div>
+            </div>
+
+            <div class="palette-grid-title">Question Navigation Palette:</div>
+            <div class="grid-container" id="questionGrid"></div>
+        </div>
+    </div>
+</div>
+
+<div class="custom-modal" id="resultModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>🎉 Examination Submitted</h3>
+        </div>
+        <div class="modal-body">
+            <div class="result-row"><strong>Candidate Name:</strong> <span id="resName">--</span></div>
+            <div class="result-row"><strong>Registered Email:</strong> <span id="resEmail">--</span></div>
+            <div class="result-score-box">
+                <div class="score-title">Final Score Matrix</div>
+                <div class="score-value" id="resScore">0 / 0</div>
+            </div>
+            <p style="color: #666; font-size: 12px; line-height: 1.4; margin-top:15px;">Your comprehensive breakdown scorecard has been locked and recorded to the cloud database successfully.</p>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-btn" onclick="location.reload()">Exit Portal</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
