@@ -1,0 +1,387 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    user-select: none;
+}
+
+body {
+    background-color: #f4f7f9;
+    color: #333;
+    overflow: hidden;
+}
+
+.ssc-panel {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.ssc-top-bar {
+    background-color: #1e3a8a;
+    color: white;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    border-bottom: 3px solid #172554;
+    font-size: 14px;
+    z-index: 10;
+}
+
+.student-info-top {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Horizontal spacing for laptop view */
+}
+
+.timer-box {
+    background-color: #dc2626;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    box-shadow: inset 0 0 4px rgba(0,0,0,0.2);
+}
+
+.ssc-main-content {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.question-section {
+    flex: 3;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #cbd5e1;
+    padding: 0;
+    overflow-y: auto;
+}
+
+.subject-tabs {
+    background-color: #f1f5f9;
+    border-bottom: 2px solid #cbd5e1;
+    padding: 6px 12px;
+}
+
+.subject-tabs .tab {
+    background: #2563eb;
+    color: white;
+    display: inline-block;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.registration-box {
+    padding: 25px 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 480px;
+    margin: auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border: 1px solid #e2e8f0;
+}
+
+.registration-box h2 {
+    color: #1e3a8a;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.registration-box input, .registration-box select {
+    display: block;
+    padding: 10px;
+    width: 100%;
+    font-size: 14px;
+    margin-bottom: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    outline: none;
+}
+
+.photo-upload-container {
+    text-align: left;
+    margin-bottom: 12px;
+    background: #f8fafc;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px dashed #cbd5e1;
+}
+
+.photo-upload-container label {
+    font-size: 12px;
+    font-weight: bold;
+    color: #475569;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.btn-start {
+    width: 100%;
+    padding: 12px;
+    background: #10b981;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 6px;
+}
+
+.btn-start:hover { background: #059669; }
+
+#examForm {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+    height: 100%;
+}
+
+.question-block {
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.q-header {
+    background: #f8fafc;
+    padding: 8px 12px;
+    font-weight: bold;
+    border: 1px solid #e2e8f0;
+    color: #1e3a8a;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-size: 13px;
+}
+
+.q-img-render {
+    max-width: 100%;
+    max-height: 250px;
+    object-fit: contain;
+    margin: 10px 0;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    display: block;
+}
+
+.option-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #e2e8f0;
+    background: #f8fafc;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.option-item input {
+    margin-right: 12px;
+}
+
+.ssc-buttons {
+    border-top: 1px solid #e2e8f0;
+    padding-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.ssc-buttons button {
+    padding: 10px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.btn-clear { background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; }
+.btn-next { background: #2563eb; color: white; border: none; }
+.btn-submit { background: #10b981; color: white; border: none; }
+
+/* 🔴 Point 1 & 3 Fix: Palette Section and Profile Layout Enhancements */
+.palette-section {
+    flex: 1;
+    min-width: 320px; /* Increased palette size to view items comfortably */
+    max-width: 350px;
+    background: #f8fafc;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #e2e8f0;
+    overflow-y: auto;
+}
+
+.profile-box {
+    display: flex;
+    background: #e2e8f0;
+    padding: 10px;
+    border-radius: 6px;
+    align-items: center;
+    margin-bottom: 15px;
+    border: 1px solid #cbd5e1;
+    gap: 12px;
+}
+
+.avatar-container {
+    width: 65px;
+    height: 75px;
+    border: 2px solid #94a3b8;
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-details strong {
+    font-size: 14px;
+    color: #0f172a;
+    display: block;
+}
+
+.palette-status {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #cbd5e1;
+    padding-bottom: 10px;
+}
+
+.box {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
+    margin-right: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    border-radius: 3px;
+}
+
+.answered { background: #10b981 !important; color: white; }
+.unanswered { background: #ef4444 !important; color: white; }
+.not-visited { background: #ffffff; color: #333; border: 1px solid #cbd5e1; }
+
+.palette-grid-title {
+    font-weight: bold;
+    font-size: 13px;
+    margin-bottom: 8px;
+    color: #475569;
+}
+
+/* Enhanced Navigation Palette Weights */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.grid-btn {
+    padding: 10px 0; /* Higher weight & sizing ergonomics */
+    text-align: center;
+    background: #fff;
+    border: 1px solid #cbd5e1;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 13px;
+    border-radius: 4px;
+}
+
+.grid-btn.active {
+    outline: 3px solid #0f172a;
+    outline-offset: -1px;
+}
+
+/* Custom Modal Layout definitions */
+.custom-modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(15, 23, 42, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.custom-modal.show { opacity: 1; pointer-events: auto; }
+
+.modal-content {
+    background: white;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    overflow: hidden;
+    /* ✅ Desktop par safe rakhne ke liye display behavior */
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header { background: #1e3a8a; color: white; padding: 16px; text-align: center; }
+.modal-body { padding: 20px; }
+.result-row { font-size: 14px; margin-bottom: 8px; border-bottom: 1px dashed #e2e8f0; padding-bottom: 6px; }
+.result-score-box { background: #f0fdf4; border: 1px solid #bbf7d0; padding: 15px; border-radius: 8px; text-align: center; margin-top: 15px; }
+.score-value { font-size: 28px; font-weight: 800; color: #15803d; }
+.modal-footer { padding: 12px 20px; background: #f8fafc; text-align: center; border-top: 1px solid #e2e8f0; }
+.modal-btn { background: #1e3a8a; color: white; border: none; padding: 10px 24px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .ssc-main-content { flex-direction: column-reverse; }
+    .question-section { flex: 1; }
+    .palette-section { max-width: 100%; min-width: 100%; border-left: none; }
+    .grid-container { grid-template-columns: repeat(7, 1fr); }
+    .student-info-top { flex-direction: column; gap: 5px; align-items: flex-end; }
+
+    /* 📱 MOBILE MODAL SCROLLBAR FIX (NEW) */
+    .custom-modal {
+        align-items: flex-start; /* Mobile par modal upar se shuru hoga taaki space mile */
+        padding: 20px 10px;
+    }
+
+    .modal-content {
+        max-height: 85vh;       /* Mobile screen ke 85% se bada nahi hoga dabba */
+        overflow-y: auto;       /* Agar form bada hoga toh andar hi scrollbar aa jayega */
+    }
+}
+
+/* Mobile responsive fix for Verification Portal */
+@media screen and (max-width: 768px) {
+  /* 1. Agar aapka form popup modal roop mein hai */
+  .candidate-modal, [class*="portal"], [id*="portal"], .verification-container {
+    max-height: 85vh !important; /* Screen se thoda chota rakhega box ko */
+    overflow-y: auto !important;  /* Agar content bada hai toh andar hi scrollbar de dega */
+    padding-bottom: 20px !important;
+  }
+  
+  /* 2. Pure page par scroll enable karne ke liye jab modal khula ho */
+  body {
+    overflow-y: auto !important;
+  }
+}
