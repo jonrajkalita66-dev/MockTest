@@ -386,6 +386,91 @@ body {
   }
 }
 
+/* 📱 ULTRA RESPONSIVE PREMIUM SCORECARD MODAL DESIGN */
+.scorecard-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 15px;
+    background: #ffffff;
+    border-radius: 12px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.score-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.score-row.correct { background: #e8f5e9; color: #2e7d32; }
+.score-row.wrong { background: #ffebee; color: #c62828; }
+.score-row.penalty { background: #fff3e0; color: #e65100; }
+
+.score-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #e8eaf6;
+    color: #1a237e;
+    padding: 14px 12px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 15px;
+    border: 1px solid #c5cae9;
+}
+
+.alert-box {
+    padding: 12px;
+    margin-top: 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.alert-box.success {
+    background: #e8f5e9;
+    border-left: 5px solid #4caf50;
+    color: #1b5e20;
+}
+
+.alert-box.standard {
+    background: #eceff1;
+    border-left: 5px solid #607d8b;
+    color: #37474f;
+}
+
+/* 🚀 BIG FAST EXIT HOME BUTTON */
+.modal-exit-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(59, 130, 246, 0.2);
+    transition: all 0.2s ease;
+}
+
+.modal-exit-btn:hover {
+    background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+    transform: translateY(-1px);
+}
+
+/* Mobile Screens Optimization */
+@media (max-width: 480px) {
+    .score-row { font-size: 13px; padding: 8px 10px; }
+    .score-total { font-size: 15px; }
+    .modal-exit-btn { font-size: 14px; padding: 10px; }
+}
 
 /* ========================================================
    🚨 ULTIMATE FORCE MOBILE SCROLL OVERRIDE (Failsafe Fix)
@@ -429,50 +514,3 @@ body {
         padding-bottom: 25px !important; /* Mobile buttons ke liye niche breathing space */
     }
 }
-
-
-
-
-
-.marking-scheme-box {
-    background: #fff8e1; /* Light yellow warning tone */
-    border: 1px solid #ffe082;
-    border-radius: 8px;
-    padding: 12px;
-    margin-top: 10px;
-    font-family: sans-serif;
-}
-.scheme-title {
-    font-weight: bold;
-    color: #b78103;
-    font-size: 13px;
-    margin-bottom: 6px;
-}
-.scheme-details {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 4px;
-}
-.badge-success {
-    background: #e8f5e9;
-    color: #2e7d32;
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: bold;
-}
-.badge-danger {
-    background: #ffebee;
-    color: #c62828;
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: bold;
-}
-.scheme-note {
-    font-size: 11px;
-    color: #616161;
-    margin: 0;
-    font-style: italic;
-}
-
